@@ -2,16 +2,57 @@
 <html lang="en">
 
 <head>
+    <!-- Meta Tags Penting -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Srikandi Trans Tour & Travel - Partner Travel Terpercaya Anda</title>
-    <meta name="description" content="Premium travel agency offering customized tour packages, hotel bookings, flight tickets, and visa services">
+    <meta name="description" content="Srikandi Trans Tour & Travel - Partner Perjalanan Terbaik di Indonesia. Pesan tiket travel, paket wisata, dan kirim paket dengan harga terbaik.">
+    <meta name="keywords" content="travel jawa, paket wisata murah, tiket travel murah, paket travel murah, tour jawa tengah">
+    <meta name="author" content="Srikandi Trans">
+
+    <!-- Canonical URL (penting untuk hindari duplicate content) -->
+    <link rel="canonical" href="https://www.srikanditravel.com" />
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Srikandi Trans - Travel Terpercaya di Indonesia">
+    <meta property="og:description" content="Pesan tiket travel, paket wisata, dan rental mobil dengan harga terbaik.">
+    <meta property="og:image" content="https://www.srikanditravel.com/logo-srikandi-trans.jpg">
+    <meta property="og:url" content="https://www.srikanditravel.com">
+    <meta property="og:type" content="websiwebsitete">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Structured Data / Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TravelAgency",
+            "name": "Srikandi Trans",
+            "image": "https://www.srikanditravel.com/logo-srikandi-trans.jpg",
+            "description": "Agen travel terpercaya untuk paket wisata dan tiket travel di Indonesia",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Jl. Contoh No. 123",
+                "addressLocality": "Banyumas",
+                "addressRegion": "Jawa Tengah",
+                "postalCode": "53182",
+                "addressCountry": "ID"
+            },
+            "telephone": "+6285876615055",
+            "openingHours": "Setiap Hari",
+            "priceRange": "Rp100.000 - Rp5.000.000"
+        }
+    </script>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
@@ -31,7 +72,7 @@
     </script>
     <style>
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1733049922851-51ce12b07041?q=80&w=1478&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
             background-position: center;
         }
@@ -48,17 +89,152 @@
         .testimonial-card:hover {
             transform: scale(1.05);
         }
+
+          /* Loading animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #3B82F6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #FFF;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+        
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Enhanced hover effects */
+        .btn-hover {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-hover:active {
+            transform: translateY(1px);
+        }
+        
+        /* Pulse animation for CTA */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Floating animation for hero elements */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Enhanced package card */
+        .package-card {
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .package-card:hover {
+            transform: perspective(1000px) rotateY(5deg) translateY(-10px);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.08);
+        }
+        
+        /* Gradient border effect */
+        .gradient-border {
+            position: relative;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(45deg, #3B82F6, #10B981);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+        
+        /* Text animation */
+        .text-gradient {
+            background: linear-gradient(45deg, #3B82F6, #10B981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        /* Bounce animation */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .bounce-animation {
+            animation: bounce 2s infinite;
+        }
     </style>
 </head>
 
 <body class="font-sans text-dark bg-light">
+
+
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+
     <!-- Navigation -->
     <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
-                    <i class="fas fa-luggage-cart text-2xl text-primary"></i>
-                    <a href="#" class="text-2xl font-bold text-primary">Srikandi <span class="text-secondary">Trans</span></a>
+                    <a href="#" class="text-2xl  font-bold text-primary ">
+                        Srikandi <span class="text-secondary">Trans</span>
+                      <p class="text-xs text-black font-normal mx-auto -mt-1">Tour and Travel Purwokerto</p>
+                    </a>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -96,12 +272,16 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white">
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white overflow-hidden">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Jelajahi Dunia Bersama <span class="text-primary">Srikandi Trans</span></h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Partner travel dengan layanan premium terpercaya anda, perjalanan lintas kota maupun di dalam kota.</p>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-down" data-aos-delay="100">
+                Jelajahi Dunia Bersama <span class="text-gradient">Srikandi Trans</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Partner travel dengan layanan premium terpercaya anda, perjalanan lintas kota maupun di dalam kota.
+            </p>
 
-            <div class="bg-white rounded-lg shadow-xl p-6 max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-xl p-6 max-w-4xl mx-auto floating" data-aos="zoom-in" data-aos-delay="300">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="relative">
                         <select id="rute" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-dark">
@@ -129,20 +309,26 @@
                 </button>
                 </div>
             </div>
+
+
+            <div class="mt-12 bounce-animation" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-chevron-down text-2xl opacity-70"></i>
+            </div>
         </div>
     </section>
 
     <!-- Popular Packages -->
     <section id="packages" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Rute Perjalanan <span class="text-primary">Populer</span></h2>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Rute Perjalanan <span class="text-gradient">Populer</span></h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Temukan paket perjalanan kami yang paling dicari yang dirancang untuk pengalaman lebih baik.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Package 1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden package-card transition duration-500">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden package-card gradient-border" 
+                     data-aos="fade-up" data-aos-delay="100">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bali Package" class="w-full h-64 object-cover">
                         <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">Popular</div>
@@ -169,7 +355,8 @@
                 </div>
 
                 <!-- Package 2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden package-card transition duration-500">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden package-card gradient-border" 
+                     data-aos="fade-up" data-aos-delay="200">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Japan Package" class="w-full h-64 object-cover">
                         <div class="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-medium">Best Seller</div>
@@ -196,7 +383,8 @@
                 </div>
 
                 <!-- Package 3 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden package-card transition duration-500">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden package-card gradient-border" 
+                     data-aos="fade-up" data-aos-delay="300">
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Europe Package" class="w-full h-64 object-cover">
                         <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">Early Bird</div>
@@ -223,8 +411,8 @@
                 </div>
             </div>
 
-            <div class="text-center mt-12">
-                <a href="https://wa.me/6285876615055" class="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition duration-300 font-medium">
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://wa.me/6285876615055" class="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition duration-300 font-medium btn-hover">
                     Minta rute lainnya <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
@@ -234,14 +422,15 @@
     <!-- Services Section -->
     <section id="services" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Pelayanan <span class="text-primary">Travel Kami</span></h2>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Pelayanan <span class="text-gradient">Travel Kami</span></h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Solusi perjalanan lengkap untuk membuat perjalanan Anda lancar dan berkesan.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Layanan 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300">
+                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300" 
+                     data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-suitcase-rolling text-primary text-2xl"></i>
                     </div>
@@ -250,7 +439,8 @@
                 </div>
 
                 <!-- Layanan 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300">
+                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300" 
+                     data-aos="fade-up" data-aos-delay="200">
                     <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-plane text-primary text-2xl"></i>
                     </div>
@@ -259,7 +449,8 @@
                 </div>
 
                 <!-- Layanan 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300">
+                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300" 
+                     data-aos="fade-up" data-aos-delay="300">
                     <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-hotel text-primary text-2xl"></i>
                     </div>
@@ -268,7 +459,8 @@
                 </div>
 
                 <!-- Layanan 4 -->
-                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300">
+                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300" 
+                     data-aos="fade-up" data-aos-delay="400">
                     <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-passport text-primary text-2xl"></i>
                     </div>
@@ -281,11 +473,14 @@
 
 
     <!-- Why Choose Us -->
-    <section class="py-20 bg-gray-50">
+     
+    <section class="py-20 bg-gray-50 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1531975474574-e9d2732e8386?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-10"></div>
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center">
                 <!-- Teks Kiri -->
-                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                 
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12" data-aos="fade-right">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6">Kenapa Memilih <span class="text-primary">Srikandi Trans?</span></h2>
                     <p class="text-gray-600 mb-8">Kami berkomitmen untuk memberikan pengalaman perjalanan yang luar biasa dari awal hingga akhir.</p>
 
@@ -332,10 +527,13 @@
                 </div>
 
                 <!-- Gambar Kanan -->
-                <div class="lg:w-1/2">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1531975474574-e9d2732e8386?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pelanggan Bahagia" class="rounded-xl shadow-lg w-full">
-                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg w-64 hidden md:block">
+
+                <div class="lg:w-1/2" data-aos="fade-left" data-aos-delay="200">
+                    <div class="relative floating">
+                        <img src="https://images.unsplash.com/photo-1531975474574-e9d2732e8386?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                             alt="Pelanggan Bahagia" 
+                             class="rounded-xl shadow-lg w-full transform transition duration-700 hover:scale-105">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg w-64 hidden md:block floating" style="animation-delay: 1s;">
                             <div class="flex items-center mb-3">
                                 <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
                                     <i class="fas fa-users text-primary text-xl"></i>
@@ -354,16 +552,17 @@
     <!-- Testimonials -->
     <section class="py-20 bg-primary text-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Apa Kata <span class="text-secondary">Pelanggan Kami</span></h2>
                 <p class="text-light max-w-2xl mx-auto">Simak cerita dari para traveler yang telah merasakan layanan kami secara langsung.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Testimoni 1 -->
+                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="100">
                 <div class="bg-white bg-opacity-10 p-8 rounded-xl testimonial-card">
                     <div class="flex items-center mb-6">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://img.freepik.com/premium-vector/human-icon_970584-3.jpg?semt=ais_items_boosted&w=740" alt="Sarah Johnson" class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-bold">Rakitem</h4>
                             <div class="flex mt-1">
@@ -375,13 +574,16 @@
                             </div>
                         </div>
                     </div>
-                    <p class="italic">"Perjalanan ke kampung yang diatur oleh Srikandi Trans benar-benar sempurna! Semua detail diperhatikan, dan timnya sangat ramah dan bik. Pasti saya pesan disini lagi!"</p>
+                    <p class="italic">"Perjalanan ke kampung yang diatur oleh Srikandi Trans benar-benar sempurna! Semua detail diperhatikan, dan timnya sangat ramah dan baik. Pasti saya pesan disini lagi!"</p>
+                </div>
                 </div>
 
                 <!-- Testimoni 2 -->
+
+                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="200">
                 <div class="bg-white bg-opacity-10 p-8 rounded-xl testimonial-card">
                     <div class="flex items-center mb-6">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://img.freepik.com/premium-vector/human-icon_970584-3.jpg?semt=ais_items_boosted&w=740" alt="Michael Chen" class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-bold">Jamini</h4>
                             <div class="flex mt-1">
@@ -395,11 +597,13 @@
                     </div>
                     <p class="italic">"Pelayanan luar biasa untuk perjalanan kami ke Desa Penari. Itinerary-nya sangat rapi dengan perpaduan pengalaman budaya dan waktu bebas. Pilihan paketnya juga sangat memuaskan!"</p>
                 </div>
+                </div>
 
                 <!-- Testimoni 3 -->
+                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="300">
                 <div class="bg-white bg-opacity-10 p-8 rounded-xl testimonial-card">
                     <div class="flex items-center mb-6">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Patel" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://img.freepik.com/premium-vector/human-icon_970584-3.jpg?semt=ais_items_boosted&w=740" alt="Priya Patel" class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-bold">Annisa</h4>
                             <div class="flex mt-1">
@@ -413,6 +617,7 @@
                     </div>
                     <p class="italic">"Srikandi Trans membuat liburan kami tak terlupakan. Perhatian terhadap detail dan rekomendasi pribadi mereka benar-benar melebihi harapan kami. Sangat direkomendasikan!"</p>
                 </div>
+                </div>
             </div>
         </div>
     </section>
@@ -421,14 +626,15 @@
     <!-- CTA Section -->
     <section id="book-now" class="py-20 bg-secondary text-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Siap untuk Petualangan Berikutnya?</h2>
-            <p class="text-xl mb-10 max-w-2xl mx-auto">Biar kami bantu merencanakan liburan sempurna sesuai keinginan Anda.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4"><a href="https://wa.me/6285876615055" class="bg-white text-secondary px-8 py-4 rounded-lg hover:bg-gray-100 transition duration-300 font-bold">
-                Pesan Sekarang
-            </a>
-                <a href="https://wa.me/6285876615055" class="border-2 border-white px-8 py-4 rounded-lg hover:bg-white hover:bg-opacity-10 transition duration-300 font-bold">
-                Hubungi Kami
-            </a>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-down">Siap untuk Petualangan Berikutnya?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto" data-aos="fade-down" data-aos-delay="100">Biar kami bantu merencanakan liburan sempurna sesuai keinginan Anda.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://wa.me/6285876615055" class="bg-white text-secondary px-8 py-4 rounded-lg hover:bg-gray-100 transition duration-300 font-bold btn-hover pulse-animation">
+                    Pesan Sekarang
+                </a>
+                <a href="https://wa.me/6285876615055" class="border-2 border-white px-8 py-4 rounded-lg hover:bg-white hover:bg-opacity-10 transition duration-300 font-bold btn-hover">
+                    Hubungi Kami
+                </a>
             </div>
         </div>
     </section>
@@ -531,7 +737,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold mb-1">Alamat</h4>
-                                    <p class="text-gray-600">123 Travel Street, Suite 456<br>Jakarta, Indonesia 12345</p>
+                                    <p class="text-gray-600">Gang Gendis, RT.3/RW.4, Linggasari, Kec. Kembaran, Kabupaten Banyumas, Jawa Tengah 53182</p>
                                 </div>
                             </div>
 
@@ -578,14 +784,11 @@
                                 <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-300">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-300">
-                                    <i class="fab fa-instagram"></i>
+                                <a href="https://wa.me/6285876615055" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-300">
+                                    <i class="fab fa-whatsapp"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-300">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-300">
-                                    <i class="fab fa-youtube"></i>
+                                <a href="mailto:ekkanurdiansyah55@gmail.com" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-300">
+                                    <i class="fa fa-envelope"></i>
                                 </a>
                             </div>
                         </div>
@@ -617,22 +820,21 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-plane-departure text-primary text-2xl"></i>
-                        <a href="#" class="text-2xl font-bold text-white">Srikandi <span class="text-secondary">Trans</span></a>
+                    <a href="#home" class="text-2xl  font-bold text-primary ">
+                        Srikandi <span class="text-secondary">Trans</span>
+                      <p class="text-xs text-white font-normal mx-auto -mt-1">Tour and Travel Purwokerto</p>
+                    </a>
                     </div>
                     <p class="text-gray-400 mb-4">Mitra perjalanan terpercaya Anda yang menyediakan paket wisata premium, tiket travel, pemesanan wisata, dan layanan paket.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white transition duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-instagram"></i>
+                        <a href="https://wa.me/6285876615055" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-youtube"></i>
+                        <a href="mailto:ekkanurdiansyah55@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fa fa-envelope"></i>
                         </a>
                     </div>
                 </div>
@@ -651,11 +853,11 @@
                 <div>
                     <h3 class="text-lg font-bold mb-4">Layanan Kami</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Paket Wisata</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tiket Pesawat</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Pemesanan Hotel</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Bantuan Visa</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Asuransi Perjalanan</a></li>
+                        <li><a href="https://wa.link/879ljy" class="text-gray-400 hover:text-white transition duration-300">Paket Wisata</a></li>
+                        <li><a href="https://wa.link/zsxb0w" class="text-gray-400 hover:text-white transition duration-300">Tiket Travel</a></li>
+                        <li><a href="https://wa.link/fklxc0" class="text-gray-400 hover:text-white transition duration-300">Booking Wisata</a></li>
+                        <li><a href="https://wa.link/wdz2ug" class="text-gray-400 hover:text-white transition duration-300">Kirim Paket</a></li>
+                        <li><a href="https://wa.link/o40b5d" class="text-gray-400 hover:text-white transition duration-300">Asuransi Perjalanan</a></li>
                     </ul>
                 </div>
 
@@ -664,7 +866,7 @@
                     <ul class="space-y-2 text-gray-400">
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
-                            <span>Jl. Travel No. 123, Suite 456<br>Jakarta, Indonesia 12345</span>
+                            <span>Gang Gendis, RT.3/RW.4, Linggasari, Kec. Kembaran, Kabupaten Banyumas, Jawa Tengah 53182</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone-alt mr-3 text-primary"></i>
@@ -682,9 +884,9 @@
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-gray-400 mb-4 md:mb-0">© 2023 Srikandi Trans Tour & Travel. Seluruh hak cipta dilindungi.</p>
                     <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Kebijakan Privasi</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Syarat & Ketentuan</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Peta Situs</a>
+                        <a href="./terms-condistions.html" class="text-gray-400 hover:text-white transition duration-300">Kebijakan Privasi</a>
+                        <a href="./privacy-policy.html" class="text-gray-400 hover:text-white transition duration-300">Syarat & Ketentuan</a>
+                        <a href="./sitemap.html" class="text-gray-400 hover:text-white transition duration-300">Peta Situs</a>
                     </div>
                 </div>
             </div>
@@ -697,7 +899,43 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
+
+                // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out',
+        });
+        
+        // Loading screen animation
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+        
+        // Enhanced hover effects with GSAP (optional - if you want more complex animations)
+        // You would need to include GSAP library for this
+        document.querySelectorAll('.package-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'perspective(1000px) rotateY(5deg) translateY(-10px)';
+                card.style.boxShadow = '0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.08)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateY(0deg) translateY(0)';
+                card.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            });
+        });
+
         // Mobile menu toggle
         const mobileMenuButton = document.querySelector('.mobile-menu-button');
         const mobileMenu = document.querySelector('.mobile-menu');
