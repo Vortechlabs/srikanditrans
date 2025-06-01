@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srikandi Trans Tour & Travel - Partner Travel Terpercaya Anda</title>
+    <meta name="description" content="Premium travel agency offering customized tour packages, hotel bookings, flight tickets, and visa services">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1E293B',
+                        light: '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-dark bg-light">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-luggage-cart text-2xl text-primary"></i>
+                    <a href="#" class="text-2xl font-bold text-primary">Srikandi <span class="text-secondary">Trans</span></a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#home" class="text-dark hover:text-primary font-medium">Beranda</a>
+                    <a href="#packages" class="text-dark hover:text-primary font-medium">Paket</a>
+                    <a href="#services" class="text-dark hover:text-primary font-medium">Layanan</a>
+                    <a href="#about" class="text-dark hover:text-primary font-medium">Tentang Kami</a>
+                    <a href="#contact" class="text-dark hover:text-primary font-medium">Kontak</a>
+                    <a href="#book-now" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Booking Sekarang</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="hidden mobile-menu md:hidden">
+                <ul class="mt-4 space-y-2">
+                    <li><a href="#home" class="block px-2 py-1 hover:bg-gray-100 rounded">Beranda</a></li>
+                    <li><a href="#packages" class="block px-2 py-1 hover:bg-gray-100 rounded">Paket</a></li>
+                    <li><a href="#services" class="block px-2 py-1 hover:bg-gray-100 rounded">Layanan</a></li>
+                    <li><a href="#about" class="block px-2 py-1 hover:bg-gray-100 rounded">Tentang Kami</a></li>
+                    <li><a href="#contact" class="block px-2 py-1 hover:bg-gray-100 rounded">Kontak</a></li>
+                    <li><a href="#book-now" class="block bg-primary text-white px-4 py-2 rounded-lg mt-2 text-center">Booking Sekarang</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Jelajahi Dunia Bersama <span class="text-primary">Srikandi Trans</span></h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Partner travel dengan layanan premium terpercaya anda, perjalanan lintas kota maupun di dalam kota.</p>
+
+            <div class="bg-white rounded-lg shadow-xl p-6 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="relative">
+                        <select id="rute" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-dark">
+                        <option selected disabled>Destination</option>
+                        <option>Bali, Indonesia</option>
+                        <option>Tokyo, Japan</option>
+                        <option>Paris, France</option>
+                        <option>New York, USA</option>
+                    </select>
+                    </div>
+                    <div class="relative">
+                        <input type="date" id="tanggal" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-dark">
+                    </div>
+                    <div class="relative">
+                        <select id="jumlah" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-dark">
+                        <option selected disabled>Travelers</option>
+                        <option>1 Person</option>
+                        <option>2 People</option>
+                        <option>3-5 People</option>
+                        <option>6+ People</option>
+                    </select>
+                    </div>
+                    <button onclick="kirimKeWA()" class="bg-primary text-white p-3 rounded-lg hover:bg-blue-600 transition duration-300 font-medium">
+                    Booking <i class="fa fa-arrow-circle-o-right a-ml-2"></i>
+                </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Packages -->
+    <section id="packages" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Rute Perjalanan <span class="text-primary">Populer</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Temukan paket perjalanan kami yang paling dicari yang dirancang untuk pengalaman lebih baik.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Package 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden package-card transition duration-500">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bali Package" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">Popular</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold">Bali Paradise Tour</h3>
+                            <span class="text-primary font-bold">$1,299</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">6 Days 5 Nights exploring the best of Bali's beaches, temples and culture.</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Bali, Indonesia</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="font-medium">4.8</span>
+                                <span class="text-gray-500 ml-1">(256 reviews)</span>
+                            </div>
+                            <a href="#" class="text-primary font-medium hover:underline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden package-card transition duration-500">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Japan Package" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-medium">Best Seller</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold">Japan Cultural Journey</h3>
+                            <span class="text-primary font-bold">$2,499</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">8 Days 7 Nights exploring Tokyo, Kyoto and Osaka with cultural experiences.</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Tokyo, Japan</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="font-medium">4.9</span>
+                                <span class="text-gray-500 ml-1">(189 reviews)</span>
+                            </div>
+                            <a href="#" class="text-primary font-medium hover:underline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden package-card transition duration-500">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Europe Package" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">Early Bird</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold">European Adventure</h3>
+                            <span class="text-primary font-bold">$3,799</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">12 Days 11 Nights visiting Paris, Rome, Barcelona and Amsterdam.</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Multiple Cities, Europe</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="font-medium">4.7</span>
+                                <span class="text-gray-500 ml-1">(312 reviews)</span>
+                            </div>
+                            <a href="#" class="text-primary font-medium hover:underline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://wa.me/6285876615055" class="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition duration-300 font-medium">
+                    Minta rute lainnya <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Pelayanan <span class="text-primary">Travel Kami</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Solusi perjalanan lengkap untuk membuat perjalanan Anda lancar dan berkesan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Layanan 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-suitcase-rolling text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Paket Wisata</h3>
+                    <p class="text-gray-600">Paket wisata yang telah dikurasi lengkap dengan akomodasi transportasi.</p>
+                </div>
+
+                <!-- Layanan 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-plane text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Tiket Travel</h3>
+                    <p class="text-gray-600">Penawaran terbaik untuk perjalanan antar kota maupun dalam kota dari Srikandi Trans</p>
+                </div>
+
+                <!-- Layanan 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hotel text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Booking Wisata</h3>
+                    <p class="text-gray-600">Pilih tempat wisata yang akan dibooking untuk berlibur bersama keluarga anda.</p>
+                </div>
+
+                <!-- Layanan 4 -->
+                <div class="bg-gray-50 p-8 rounded-xl text-center hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-passport text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Kirim Paket</h3>
+                    <p class="text-gray-600">Kirim paket anda secara cepat dengan mudah dan aman.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <!-- Teks Kiri -->
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Kenapa Memilih <span class="text-primary">Srikandi Trans?</span></h2>
+                    <p class="text-gray-600 mb-8">Kami berkomitmen untuk memberikan pengalaman perjalanan yang luar biasa dari awal hingga akhir.</p>
+
+                    <div class="space-y-6">
+                        <!-- Keunggulan 1 -->
+                        <div class="flex">
+                            <div class="mr-4">
+                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check-circle text-primary text-xl"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-2">Agen Travel Terpercaya</h3>
+                                <p class="text-gray-600">Lebih dari 5 tahun pengalaman dan 100+ pelanggan puas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Keunggulan 2 -->
+                        <div class="flex">
+                            <div class="mr-4">
+                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-hand-holding-usd text-primary text-xl"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-2">Jaminan Harga Terbaik</h3>
+                                <p class="text-gray-600">Kami menawarkan harga bersaing tanpa biaya tersembunyi.</p>
+                            </div>
+                        </div>
+
+                        <!-- Keunggulan 3 -->
+                        <div class="flex">
+                            <div class="mr-4">
+                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-headset text-primary text-xl"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-2">Layanan Pelanggan 24/7</h3>
+                                <p class="text-gray-600">Tim ahli kami siap membantu Anda kapan saja, setiap hari.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gambar Kanan -->
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1531975474574-e9d2732e8386?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pelanggan Bahagia" class="rounded-xl shadow-lg w-full">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg w-64 hidden md:block">
+                            <div class="flex items-center mb-3">
+                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-users text-primary text-xl"></i>
+                                </div>
+                                <h3 class="font-bold">500+ Tur Terselenggara</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm">Tim berpengalaman kami telah sukses menyelenggarakan ratusan tur di berbagai tempat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Apa Kata <span class="text-secondary">Pelanggan Kami</span></h2>
+                <p class="text-light max-w-2xl mx-auto">Simak cerita dari para traveler yang telah merasakan layanan kami secara langsung.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimoni 1 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Rakitem</h4>
+                            <div class="flex mt-1">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Perjalanan ke kampung yang diatur oleh Srikandi Trans benar-benar sempurna! Semua detail diperhatikan, dan timnya sangat ramah dan bik. Pasti saya pesan disini lagi!"</p>
+                </div>
+
+                <!-- Testimoni 2 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Jamini</h4>
+                            <div class="flex mt-1">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Pelayanan luar biasa untuk perjalanan kami ke Desa Penari. Itinerary-nya sangat rapi dengan perpaduan pengalaman budaya dan waktu bebas. Pilihan paketnya juga sangat memuaskan!"</p>
+                </div>
+
+                <!-- Testimoni 3 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Patel" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Annisa</h4>
+                            <div class="flex mt-1">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Srikandi Trans membuat liburan kami tak terlupakan. Perhatian terhadap detail dan rekomendasi pribadi mereka benar-benar melebihi harapan kami. Sangat direkomendasikan!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section id="book-now" class="py-20 bg-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Siap untuk Petualangan Berikutnya?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto">Biar kami bantu merencanakan liburan sempurna sesuai keinginan Anda.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4"><a href="https://wa.me/6285876615055" class="bg-white text-secondary px-8 py-4 rounded-lg hover:bg-gray-100 transition duration-300 font-bold">
+                Pesan Sekarang
+            </a>
+                <a href="https://wa.me/6285876615055" class="border-2 border-white px-8 py-4 rounded-lg hover:bg-white hover:bg-opacity-10 transition duration-300 font-bold">
+                Hubungi Kami
+            </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <img src="https://images.unsplash.com/photo-1523952578875-e6bb18b26645?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Tim Kami" class="rounded-xl shadow-lg w-full">
+                </div>
+
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Tentang <span class="text-primary">Srikandi Trans</span></h2>
+                    <p class="text-gray-600 mb-6">Didirikan pada tahun 2008, Srikandi Trans Tour & Travel telah berkembang menjadi salah satu agen perjalanan paling terpercaya di wilayah ini. Misi kami adalah memberikan pengalaman perjalanan luar biasa dengan layanan yang dipersonalisasi.</p>
+                    <p class="text-gray-600 mb-8">Dengan tim ahli perjalanan yang bersemangat, kami merancang itinerary unik yang melampaui pengalaman wisata biasa. Kami percaya pada pariwisata yang bertanggung jawab dan membawa manfaat bagi wisatawan maupun masyarakat lokal.</p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-center">
+                            <div class="mr-4">
+                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-globe-asia text-primary text-xl"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">50+ Destinasi</h3>
+                                <p class="text-gray-600 text-sm">Di Jawa</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="mr-4">
+                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-user-tie text-primary text-xl"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">Tim Profesional</h3>
+                                <p class="text-gray-600 text-sm">Driver berpengalaman & ramah</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/6285876615055" class="inline-flex items-center text-primary font-bold hover:underline">
+                    Pelajari Lebih Lanjut <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Kenali Lebih <span class="text-primary">Dekat</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Punya pertanyaan atau siap untuk liburan? Tim kami disini siap membantu.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-6">Kirim Kami Pesan</h3>
+                        <form onsubmit="kirimPesanKontak(event)">
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Nama Anda</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Alamat Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="mb-6">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Nomor Telepon</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Pesan Anda</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-600 transition duration-300 font-medium">
+                                Kirim Pesan 
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-lg h-full">
+                        <h3 class="text-xl font-bold mb-6">Informasi Kontak</h3>
+
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Alamat</h4>
+                                    <p class="text-gray-600">123 Travel Street, Suite 456<br>Jakarta, Indonesia 12345</p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone-alt text-primary text-xl"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Hubungi Kami</h4>
+                                    <p class="text-gray-600">+62 858-7661-5055 (WhatsApp)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-primary text-xl"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email Kami</h4>
+                                    <p class="text-gray-600">ekkanurdiansyah55@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-clock text-primary text-xl"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Jam Kerja</h4>
+                                    <p class="text-gray-600">Setiap Hari: 24 Jam</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-300">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <p class="text-light mb-8 max-w-2xl mx-auto">Get travel tips, exclusive deals, and destination inspiration straight to your inbox.</p>
+
+            <div class="max-w-xl mx-auto flex flex-col sm:flex-row gap-2">
+                <input type="email" id="newsletter-email" placeholder="Alamat email Anda" class="flex-grow px-4 py-3 rounded-lg focus:outline-none text-dark">
+                <button onclick="kirimNewsletter()" class="bg-secondary text-white px-6 py-3 rounded-lg hover:bg-green-600 transition duration-300 font-medium">
+                    Langganan 
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-plane-departure text-primary text-2xl"></i>
+                        <a href="#" class="text-2xl font-bold text-white">Srikandi <span class="text-secondary">Trans</span></a>
+                    </div>
+                    <p class="text-gray-400 mb-4">Mitra perjalanan terpercaya Anda yang menyediakan paket wisata premium, tiket travel, pemesanan wisata, dan layanan paket.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Beranda</a></li>
+                        <li><a href="#packages" class="text-gray-400 hover:text-white transition duration-300">Paket Wisata</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Layanan</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">Tentang Kami</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Layanan Kami</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Paket Wisata</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tiket Pesawat</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Pemesanan Hotel</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Bantuan Visa</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Asuransi Perjalanan</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Informasi Kontak</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+                            <span>Jl. Travel No. 123, Suite 456<br>Jakarta, Indonesia 12345</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary"></i>
+                            <span>+62 858-7661-5055</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            <span>ekkanurdiansyah55@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">© 2023 Srikandi Trans Tour & Travel. Seluruh hak cipta dilindungi.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Kebijakan Privasi</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Syarat & Ketentuan</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Peta Situs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        function kirimKeWA() {
+            const rute = document.getElementById('rute').value;
+            const tanggal = document.getElementById('tanggal').value;
+            const jumlah = document.getElementById('jumlah').value;
+
+            if (!rute || !tanggal || !jumlah) {
+                alert("Mohon lengkapi semua pilihan terlebih dahulu.");
+                return;
+            }
+
+            const pesan = `Halo admin, saya ingin booking perjalanan:\n\n` +
+                `Rute: ${rute}\n` +
+                `Tanggal: ${tanggal}\n` +
+                `Jumlah Orang: ${jumlah}`;
+
+            const nomorWA = '6285876615055'; // Ganti dengan nomor WA tujuan
+            const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+            window.open(url, '_blank');
+        }
+
+
+        function kirimPesanKontak(event) {
+            event.preventDefault(); // cegah form submit default
+
+            const nama = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const telepon = document.getElementById('phone').value;
+            const pesan = document.getElementById('message').value;
+
+            if (!nama || !email || !telepon || !pesan) {
+                alert("Mohon lengkapi semua form terlebih dahulu.");
+                return;
+            }
+
+            const isiPesan = `Halo admin, saya ingin menghubungi:\n\n` +
+                `Nama: ${nama}\n` +
+                `Email: ${email}\n` +
+                `Telepon: ${telepon}\n` +
+                `Pesan: ${pesan}`;
+
+            const nomorWA = '6281234567890'; // Ganti ke nomor WA admin
+            const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(isiPesan)}`;
+            window.open(url, '_blank');
+        }
+
+        function kirimNewsletter() {
+            const emailNewsletter = document.getElementById('newsletter-email').value;
+
+            if (!emailNewsletter) {
+                alert("Mohon masukkan alamat email Anda.");
+                return;
+            }
+
+            const pesanNewsletter = `Halo admin, saya ingin berlangganan newsletter dengan email:\n${emailNewsletter}`;
+            const nomorWA = '6281234567890'; // Ganti ke nomor WA admin
+            const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesanNewsletter)}`;
+            window.open(url, '_blank');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
