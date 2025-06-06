@@ -368,7 +368,10 @@
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span>Yogyakarta</span>
                         </div>
-                            <a href="#" class="text-primary font-medium hover:underline">Booking</a>
+                        <button onclick="bookRoute('Purwokerto - Jogja', 'Rp 175.000')" 
+                                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition">
+                            Booking
+                        </button>
                         </div>
                     </div>
                 </div>
@@ -392,7 +395,10 @@
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span>Solo</span>
                         </div>
-                            <a href="#" class="text-primary font-medium hover:underline">Booking</a>
+                        <button onclick="bookRoute('Purwokerto - Solo', 'Rp 200.000')" 
+                                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition">
+                            Booking
+                        </button>
                         </div>
                     </div>
                 </div>
@@ -416,7 +422,10 @@
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span>Wonogiri</span>
                         </div>
-                            <a href="#" class="text-primary font-medium hover:underline">Booking</a>
+                        <button onclick="bookRoute('Purwokerto - Wonogiri', 'Rp 250.000')" 
+                                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition">
+                            Booking
+                        </button>
                         </div>
                     </div>
                 </div>
@@ -985,6 +994,14 @@
             const nomorWA = '6285876615055'; // Ganti dengan nomor WA tujuan
             const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
             window.open(url, '_blank');
+        }
+        
+        // Function to handle booking
+        function bookRoute(routeName, price) {
+            const phoneNumber = "6285876615055";
+            const message = `Halo min Srikandi Trans, saya ingin booking:\n\n*Rute:* ${routeName}\n*Harga:* ${price}\n\nBisa dibantu untuk proses selanjutnya?`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
 
